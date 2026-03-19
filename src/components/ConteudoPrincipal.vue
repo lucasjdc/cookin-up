@@ -3,6 +3,7 @@ export default {
     data() {
         return {
             ingredientes: ['Alho', 'Manteiga', 'Orégano']
+            //ingredientes: []
         }
     }
 }
@@ -15,9 +16,13 @@ export default {
             <span class="subtitulo-lg sua-lista-texto">
                 Sua lista:
             </span>
-            <ul class="ingredientes-sua-lista">
+            <ul v-if="ingredientes.length" class="ingredientes-sua-lista">
                 <li v-for="ingrediente in ingredientes" :key="ingrediente" class="ingrediente">{{ ingrediente }}</li>
             </ul>
+            <p v-else class="paragrafo lista-vazia">
+              <img src="../assets/imagens/icones/lista-vazia.svg" alt="Ícone de pesquisa">
+              Sua lista está vazia, selecione ingredientes para iniciar.
+            </p>
         </section>
 
     </main>
